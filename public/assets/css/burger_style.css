@@ -5,8 +5,9 @@ h1 {
 }
 
 img {
-    height: 100px;
+    height: 200px;
     margin: 0 auto;
+    display: block;
 }
 
 li {
