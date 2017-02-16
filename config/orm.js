@@ -34,7 +34,7 @@ var orm = {
             cb(result);
         });
     }, insertOne: function(table, cols, vals, cb) {
-        var queryString = `INSERT INTO ${table} ;`;
+        var queryString = `INSERT INTO ${table}`;
 
         queryString += " (";
         queryString += cols.toString();
@@ -45,7 +45,7 @@ var orm = {
 
         console.log(queryString);
 
-        connection.query(queryString, function(err, result){
+        connection.query(queryString, vals, function(err, result){
             if (err){
                 throw err;
             }
@@ -55,11 +55,11 @@ var orm = {
         var queryString = `UPDATE ${table}`;
 
         queryString += ` SET `;
-        queryString += objToSQL(objColsVals);
+        queryString += objToSql(objColVals);
         queryString += ` WHERE `;
         queryString += condition;
 
-        connection(queryString, function(err, result){
+        connection.query(queryString, function(err, result){
             if (err){
                 throw err;
             }

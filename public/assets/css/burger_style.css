@@ -1,0 +1,19 @@
+h1 {
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    font-size: 64px;    
+}
+
+img {
+    height: 100px;
+    margin: 0 auto;
+}
+
+li {
+    list-style-type: none;
+}
+
+.devoured {
+    font-style: italic;
+    color: lightgrey;
+}

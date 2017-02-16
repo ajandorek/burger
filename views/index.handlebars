@@ -1,0 +1,61 @@
+<img src="/public/assets/img/burger.png" />
+<h1>Burgers!</h1>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Burgers waiting to be eaten!</h3>
+          </div>
+            <div class="panel-body">
+              <ul>
+                {{#each burger}}
+                  {{#unless this.devoured}}
+                    <li>
+                      <form action="/{{this.id}}?_method=PUT" method="POST">
+                      {{this.burger_name}}
+                        <input type="hidden" name="devoured" value="true">
+                        <button type="submit" class="btn btn-success">NOM</button>
+                      </form>
+                    </li>
+                  {{/unless}}
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Devoured Burgers!</h3>
+          </div>
+            <div class="panel-body">
+              <ul>
+                {{#each burger}}
+                  {{#if this.devoured}}
+                    <li class="devoured">
+                      {{this.burger_name}}
+                    </li>
+                  {{/if}}
+                {{/each}}
+              </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">Add A Burger!</h3>
+  </div>
+  <div class="panel-body">
+    <form class="create-update-form" action="/" method="POST">
+
+      <div class="form-group">
+        <input type="text" id="ca" name="burger_name">
+      </div>
+
+      <button type="submit" class="btn btn-info">Submit</button>
+      <p>Enter a burger you want to eat then click "Submit"!</p>
+    </form>
+  </div>
+</div>
